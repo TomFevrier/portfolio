@@ -46,13 +46,6 @@ export const query = graphql`
 				title
 				date
 				link
-				featured_image {
-					childImageSharp {
-						fluid(maxWidth: 600) {
-							...GatsbyImageSharpFluid
-						}
-					}
-				}
 			}
 		}
 	}
