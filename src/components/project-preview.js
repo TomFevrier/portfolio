@@ -20,7 +20,7 @@ const ProjectPreview = node => (
 					<span>{node.title}</span>
 				</h2>
 				<p>
-					{typeof node.publisher != 'number' && (
+					{node.publisher && (
 						<span>
 							<b>{node.publisher.name}</b> &mdash;{' '}
 						</span>

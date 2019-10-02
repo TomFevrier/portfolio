@@ -47,6 +47,13 @@ class ProjectsPage extends React.Component {
 						Tous
 					</li>
 					<li
+						id="text"
+						className={this.state.filter === 'text' ? styles.highlighted : ''}
+						onClick={this.handleClick}
+					>
+						Articles
+					</li>
+					<li
 						id="data"
 						className={this.state.filter === 'data' ? styles.highlighted : ''}
 						onClick={this.handleClick}
@@ -54,11 +61,11 @@ class ProjectsPage extends React.Component {
 						Data
 					</li>
 					<li
-						id="text"
-						className={this.state.filter === 'text' ? styles.highlighted : ''}
+						id="video"
+						className={this.state.filter === 'video' ? styles.highlighted : ''}
 						onClick={this.handleClick}
 					>
-						Articles
+						Vidéo
 					</li>
 					<li
 						id="other"

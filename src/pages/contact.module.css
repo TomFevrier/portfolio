@@ -38,8 +38,9 @@ form input:invalid {
 
 form textarea {
 	border-color: var(--main-color);
-	padding: 0.2rem 0;
-	font: 1.1rem 'Roboto', sans-serif;
+	padding: 0.5rem;
+	line-height: 120%;
+	font: 1rem 'Roboto', sans-serif;
 }
 
 form textarea:invalid {
@@ -56,4 +57,25 @@ form button {
 	color: white;
 	border: none;
 	cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+	form {
+		width: 70%;
+	}
+}
+
+@media only screen and (max-width: 960px) {
+	form {
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	form {
+		width: 95%;
+	}
+	form div {
+		width: 80%;
+	}
 }
