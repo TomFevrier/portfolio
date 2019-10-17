@@ -59,7 +59,10 @@ const About = () => {
 						))}
 						{'.'}
 					</p>
-					<p>Cinéphile, sérievore.</p>
+					<p>
+						Cinéphile, sérievore, passionné de science-fiction et de nouvelles
+						technologies.
+					</p>
 				</div>
 				<ul className={styles.social}>
 					<li>

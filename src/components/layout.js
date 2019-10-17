@@ -53,7 +53,11 @@ class Layout extends React.Component {
 			<>
 				<Header homepage={this.props.homepage} />
 				<div className={styles.wrapper}>
-					<Link to={`${window.location.pathname}/#`}>
+					<Link
+						to={`${
+							typeof window !== 'undefined' ? window.location.pathname : ''
+						}/#`}
+					>
 						<FontAwesomeIcon
 							className={styles.backToTop}
 							style={{

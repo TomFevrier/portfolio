@@ -103,6 +103,11 @@ const Header = ({ siteTitle, homepage }) => {
 						))}
 					</ul>
 				</nav>
+				<div className={styles.burger}>
+					<div className={styles.line}></div>
+					<div className={styles.line}></div>
+					<div className={styles.line}></div>
+				</div>
 			</div>
 		</header>
 	);

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import ReactPlayer from 'react-player';
 
 import Layout from '../components/layout';
@@ -111,16 +110,17 @@ export const query = graphql`
 			video {
 				publicURL
 			}
-			pictures {
-				id
-				localFile {
-					childImageSharp {
-						fluid(maxWidth: 1500) {
-							...GatsbyImageSharpFluid
-						}
-					}
-				}
-			}
 		}
 	}
 `;
+
+// pictures {
+// 	id
+// 	localFile {
+// 		childImageSharp {
+// 			fluid(maxWidth: 1500) {
+// 				...GatsbyImageSharpFluid
+// 			}
+// 		}
+// 	}
+// }
