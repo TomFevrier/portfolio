@@ -1,28 +1,32 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto|Assistant:600,800|Paytone+One:600,800&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto|Assistant:600,800|Paytone+One:600,800&display=swap");
 
 :root {
-	--main-color: rebeccapurple;
+  --main-color: rebeccapurple;
 }
 
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-	font-family: sans-serif;
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-	margin: 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	background-color: white;
-	min-height: 100%;
-	position: relative;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+  min-height: 100%;
+  position: relative;
+}
+
+a:focus {
+  outline: none;
 }
 
 /* article,
@@ -634,69 +638,69 @@ pre tt:after {
   content: "";
 } */
 @media only screen and (max-width: 480px) {
-	html {
-		font-size: 100%;
-	}
+  html {
+    font-size: 100%;
+  }
 }
 
 body {
-	/* background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png"); */
-	/* background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png"); */
-	/* background-image: url("https://www.transparenttextures.com/patterns/shattered.png"); */
-	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  /* background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png"); */
+  /* background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png"); */
+  /* background-image: url("https://www.transparenttextures.com/patterns/shattered.png"); */
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 h1 {
-	font: 800 3rem 'Assistant', sans-serif;
-	margin: 0;
+  font: 800 3rem "Assistant", sans-serif;
+  margin: 0;
 }
 
 h2 {
-	font: 800 2rem 'Assistant', sans-serif;
-	margin: 0;
+  font: 800 2rem "Assistant", sans-serif;
+  margin: 0;
 }
 
 .wrapper {
-	margin: 0 auto;
-	max-width: 1400px;
-	width: 100%;
+  margin: 0 auto;
+  max-width: 1400px;
+  width: 100%;
 }
 
 main {
-	margin-top: 1rem;
-	padding: 0.5rem;
-	padding-bottom: 6.4rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  padding-bottom: 6.4rem;
 }
 
 footer {
-	color: grey;
-	font: 0.9rem 'Roboto', sans-serif;
-	text-align: center;
-	margin: 0 auto;
-	margin-top: 4rem;
-	padding: 1rem 0 1.5rem;
-	border-top: solid lightgrey 1px;
-	width: 200px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
+  color: grey;
+  font: 0.9rem "Roboto", sans-serif;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 4rem;
+  padding: 1rem 0 1.5rem;
+  border-top: solid lightgrey 1px;
+  width: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 footer a {
-	color: var(--main-color);
-	text-decoration: none;
-	font-weight: bold;
+  color: var(--main-color);
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .backToTop {
-	position: fixed;
-	font-size: 3rem;
-	color: rgba(12, 12, 12, 0.4);
-	z-index: 42;
-	bottom: 1.5rem;
-	right: 1.5rem;
-	opacity: 0;
-	pointer-events: none;
-	transition: 0.3s linear;
+  position: fixed;
+  font-size: 3rem;
+  color: rgba(12, 12, 12, 0.4);
+  z-index: 42;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s linear;
 }

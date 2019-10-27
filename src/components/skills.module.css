@@ -1,3 +1,13 @@
 .skills .container {
-	position: relative;
+  position: relative;
+  padding: 1rem;
+}
+
+.skills .container ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.skills .container li p {
+  text-align: center;
 }

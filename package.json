@@ -9,6 +9,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.6",
+    "animate.css": "^3.7.2",
     "classnames": "^2.2.6",
     "gatsby": "^2.16.1",
     "gatsby-image": "^2.2.29",
@@ -24,9 +25,11 @@
     "isotope-layout": "^3.0.6",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
+    "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
     "react-player": "^1.13.0",
+    "react-waypoint": "^9.0.2",
     "smooth-scroll": "^16.1.0"
   },
   "devDependencies": {
