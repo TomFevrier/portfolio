@@ -23,18 +23,16 @@ const Skills = ({ title }) => {
         }
     `);
 
-    if (typeof window === 'undefined') {
-        window = {};
+    if (typeof window !== 'undefined') {
+        window.addEventListener('scroll', () => {
+            if (
+                skillContainerRef.current &&
+                skillContainerRef.current.getBoundingClientRect().top <
+                    0.8 * window.innerHeight
+            )
+                setAnimate(true);
+        });
     }
-
-    window.addEventListener('scroll', () => {
-        if (
-            skillContainerRef.current &&
-            skillContainerRef.current.getBoundingClientRect().top <
-                0.8 * window.innerHeight
-        )
-            setAnimate(true);
-    });
 
     return (
         <section className={styles.skills}>
