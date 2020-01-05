@@ -15,6 +15,15 @@ class ProjectsPage extends React.Component {
         this.state = {
             filter: 'all',
         };
+        this.categories = [
+            { id: 'all', value: 'Tous' },
+            { id: 'text', value: 'Articles' },
+            { id: 'video', value: 'Vidéos' },
+            { id: 'data', value: 'Data' },
+            { id: 'interactive', value: 'Formats interactifs' },
+            { id: 'story', value: 'Formats narratifs' },
+            { id: 'other', value: 'Autres' },
+        ];
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -39,90 +48,25 @@ class ProjectsPage extends React.Component {
                 <SEO title="Projets" />
                 <h2>Tous les projets</h2>
                 <ul className={styles.filterMenu}>
-                    <li>
-                        <button
-                            id="all"
-                            className={
-                                this.state.filter === 'all'
-                                    ? styles.highlighted
-                                    : ''
-                            }
-                            onClick={this.handleClick}
-                        >
-                            Tous
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            id="text"
-                            className={
-                                this.state.filter === 'text'
-                                    ? styles.highlighted
-                                    : ''
-                            }
-                            onClick={this.handleClick}
-                        >
-                            Articles
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            id="data"
-                            className={
-                                this.state.filter === 'data'
-                                    ? styles.highlighted
-                                    : ''
-                            }
-                            onClick={this.handleClick}
-                        >
-                            Data
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            id="video"
-                            className={
-                                this.state.filter === 'video'
-                                    ? styles.highlighted
-                                    : ''
-                            }
-                            onClick={this.handleClick}
-                        >
-                            Vidéo
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            id="other"
-                            className={
-                                this.state.filter === 'other'
-                                    ? styles.highlighted
-                                    : ''
-                            }
-                            onClick={this.handleClick}
-                        >
-                            Autre
-                        </button>
-                    </li>
+                    {this.categories &&
+                        this.categories.map(category => (
+                            <li>
+                                <button
+                                    id={category.id}
+                                    className={
+                                        this.state.filter === category.id
+                                            ? styles.highlighted
+                                            : ''
+                                    }
+                                    onClick={this.handleClick}
+                                >
+                                    {category.value}
+                                </button>
+                            </li>
+                        ))}
                 </ul>
 
                 <ul className={styles.grid}>
-                    {this.props.data.allStrapiProject.edges.map(({ node }) => (
-                        <li
-                            key={node.id}
-                            className={classNames(styles.item, node.category)}
-                        >
-                            <ProjectPreview {...node} />
-                        </li>
-                    ))}
-                    {this.props.data.allStrapiProject.edges.map(({ node }) => (
-                        <li
-                            key={node.id}
-                            className={classNames(styles.item, node.category)}
-                        >
-                            <ProjectPreview {...node} />
-                        </li>
-                    ))}
                     {this.props.data.allStrapiProject.edges.map(({ node }) => (
                         <li
                             key={node.id}

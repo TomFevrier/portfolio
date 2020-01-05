@@ -28,6 +28,7 @@
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
+    "react-markdown": "^4.3.1",
     "react-player": "^1.13.0",
     "react-waypoint": "^9.0.2",
     "smooth-scroll": "^16.1.0"

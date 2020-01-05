@@ -24,9 +24,19 @@ const ProjectPreview = node => (
                             <b>{node.publisher.name}</b> &mdash;{' '}
                         </span>
                     )}
-                    <span>
-                        {new Date(node.date).toLocaleDateString('fr-FR')}
-                    </span>
+                    {!node.publisher.name.startsWith('Projet') && (
+                        <span>
+                            {new Date(node.date).toLocaleDateString('fr-FR')}
+                        </span>
+                    )}
+                    {node.publisher.name.startsWith('Projet') && (
+                        <span>
+                            {new Date(node.date).toLocaleDateString('fr-FR', {
+                                month: 'long',
+                                year: 'numeric',
+                            })}
+                        </span>
+                    )}
                 </p>
             </div>
         </div>

@@ -41,6 +41,7 @@ form textarea {
     padding: 0.5rem;
     line-height: 120%;
     font: 1rem 'Roboto', sans-serif;
+    border-radius: 0.2rem;
 }
 
 form textarea:invalid {
@@ -50,13 +51,14 @@ form textarea:invalid {
 form button {
     font: 800 1rem 'Assistant', sans-serif;
     text-transform: uppercase;
-    width: 20%;
+    width: fit-content;
     margin: 0 auto;
     padding: 0.5rem;
     background-color: var(--main-color);
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 0.2rem;
 }
 
 @media only screen and (max-width: 1200px) {

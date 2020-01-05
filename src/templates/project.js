@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Img from 'gatsby-image';
+import ReactMarkdown from 'react-markdown';
 import ReactPlayer from 'react-player';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
@@ -12,14 +13,27 @@ import Gallery from '../components/gallery';
 
 import styles from './project.module.css';
 
-const ProjectTemplate = ({ data }) => (
-    <Layout>
-        {console.log(data)}
-        <SEO title={data.strapiProject.title} />
-        <article>
-            <div className={styles.main}>
+const ProjectTemplate = ({ data }) => {
+    const categories = {
+        text: 'Article',
+        video: 'Vidéo',
+        data: 'Data',
+        interactive: 'Format interactif',
+        story: 'Format narratif',
+    };
+
+    return (
+        <Layout>
+            {console.log(data)}
+            <SEO title={data.strapiProject.title} />
+            <article>
                 <h1>{data.strapiProject.title}</h1>
                 <p>
+                    {data.strapiProject.category !== 'other' && (
+                        <span className={styles.slug}>
+                            {categories[data.strapiProject.category]}
+                        </span>
+                    )}
                     <AniLink
                         paintDrip
                         color="rebeccapurple"
@@ -28,36 +42,48 @@ const ProjectTemplate = ({ data }) => (
                     >
                         <span>{data.strapiProject.publisher.name}</span>
                     </AniLink>
-                    <span className={styles.date}>
-                        &nbsp;&mdash;&nbsp;Publié le&nbsp;
-                        {new Date(data.strapiProject.date).toLocaleDateString(
-                            'fr-FR',
-                            {
+                    {!data.strapiProject.publisher.name.startsWith(
+                        'Projet '
+                    ) && (
+                        <span className={styles.date}>
+                            &nbsp;&mdash;&nbsp;Publié le&nbsp;
+                            {new Date(
+                                data.strapiProject.date
+                            ).toLocaleDateString('fr-FR', {
                                 day: 'numeric',
                                 month: 'long',
                                 year: 'numeric',
-                            }
-                        )}
-                    </span>
+                            })}
+                        </span>
+                    )}
+                    {data.strapiProject.publisher.name.startsWith(
+                        'Projet '
+                    ) && (
+                        <span className={styles.date}>
+                            &nbsp;&mdash;&nbsp;Réalisé en&nbsp;
+                            {new Date(
+                                data.strapiProject.date
+                            ).toLocaleDateString('fr-FR', {
+                                month: 'long',
+                                year: 'numeric',
+                            })}
+                        </span>
+                    )}
                 </p>
                 {data.strapiProject.authors && (
                     <p>Avec {data.strapiProject.authors}</p>
                 )}
-                <a
-                    href={data.strapiProject.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Lien
-                </a>
                 {(data.strapiProject.related.length > 0 ||
                     data.strapiProject.related_auto.length > 0) && (
                     <>
                         <h3>Dans le même genre...</h3>
-                        <ul className={styles.grid}>
+                        <ul className={styles.relatedGrid}>
                             {data.strapiProject.related.length > 0 &&
                                 data.strapiProject.related.map(node => (
-                                    <li key={node.id} className={styles.item}>
+                                    <li
+                                        key={node.id}
+                                        className={styles.relatedItem}
+                                    >
                                         <RelatedProject {...node} />
                                     </li>
                                 ))}
@@ -70,8 +96,6 @@ const ProjectTemplate = ({ data }) => (
                         </ul>
                     </>
                 )}
-            </div>
-            <aside>
                 {data.strapiProject.video && (
                     <a
                         href={data.strapiProject.link}
@@ -103,10 +127,24 @@ const ProjectTemplate = ({ data }) => (
                         </a>
                     )}
                 {data.strapiProject.pictures && <Gallery {...data} />}
-            </aside>
-        </article>
-    </Layout>
-);
+                <div className={styles.content}>
+                    <ReactMarkdown source={data.strapiProject.content} />
+                    {data.strapiProject.link && (
+                        <p className={styles.link}>
+                            <a
+                                href={data.strapiProject.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                À découvrir ici.
+                            </a>
+                        </p>
+                    )}
+                </div>
+            </article>
+        </Layout>
+    );
+};
 
 export default ProjectTemplate;
 
@@ -121,6 +159,7 @@ export const query = graphql`
             date
             authors
             link
+            category
             related {
                 id
             }
@@ -134,6 +173,7 @@ export const query = graphql`
                     }
                 }
             }
+            content
         }
     }
 `;

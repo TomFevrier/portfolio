@@ -26,18 +26,21 @@ const PublisherTemplate = ({ data }) => {
             <SEO title={title} />
             <h1>{title}</h1>
             <ul className={styles.grid}>
-                {data.strapiPublisher.projects.map(node => (
-                    <AniLink
-                        key={node.id}
-                        paintDrip
-                        color="rebeccapurple"
-                        to={`/projet/${node.slug}`}
-                    >
-                        <li className={styles.item}>
-                            <ProjectPreview {...node} />
-                        </li>
-                    </AniLink>
-                ))}
+                {data.strapiPublisher.projects.map(node => {
+                    node.publisher = { name: data.strapiPublisher.name };
+                    return (
+                        <AniLink
+                            key={node.id}
+                            paintDrip
+                            color="rebeccapurple"
+                            to={`/projet/${node.slug}`}
+                        >
+                            <li className={styles.item}>
+                                <ProjectPreview {...node} />
+                            </li>
+                        </AniLink>
+                    );
+                })}
             </ul>
         </Layout>
     );

@@ -42,6 +42,10 @@ nav ul li a {
     position: relative;
 }
 
+nav ul li a:hover {
+    color: white;
+}
+
 nav ul li a::after {
     content: '';
     position: absolute;
