@@ -10,6 +10,8 @@ import styles from './layout.module.css';
 
 if (typeof window !== 'undefined') {
     require('smooth-scroll')('a[href*="#"]');
+} else {
+    global.window = {};
 }
 
 class Layout extends React.Component {
