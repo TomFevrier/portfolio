@@ -1,22 +1,30 @@
 ul {
-  margin: 0;
+    margin: 0;
 }
 
 li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 article {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
 }
 
 section {
-  padding: 1rem;
+    padding: 1rem;
+}
+
+@media only screen and (max-width: 1400px) {
+    article {
+        width: 85%;
+    }
 }
 
 @media only screen and (max-width: 960px) {
-  article {
-    grid-template-columns: 1fr;
-  }
+    article {
+        width: 100%;
+    }
 }

@@ -1,24 +1,24 @@
 import React from 'react';
-import { Waypoint } from 'react-waypoint';
 
 import styles from './donut.module.css';
 
 class Donut extends React.Component {
     constructor(props) {
         super(props);
-        this.animate = this.animate.bind(this);
+        this.animateDonut = this.animateDonut.bind(this);
+        this.circle = React.createRef();
     }
 
-    animate() {
-        document.getElementById(
-            this.props.data.id
-        ).style.strokeDasharray = `${this.props.data.level * 63}, 315`;
+    animateDonut() {
+        this.circle.current.style.strokeDasharray = `${this.props.data.level *
+            63}, 315`;
     }
 
     render() {
+        if (this.props.animate) this.animateDonut();
         return (
-            <Waypoint onEnter={this.animate}>
-                <svg width="110" height="110" className={styles.donut}>
+            <div className={styles.donut}>
+                <svg width="110" height="110">
                     <circle
                         className={styles.background}
                         cx="55"
@@ -26,7 +26,7 @@ class Donut extends React.Component {
                         r="50"
                     />
                     <circle
-                        id={this.props.data.id}
+                        ref={this.circle}
                         className={styles.full}
                         cx="55"
                         cy="55"
@@ -36,7 +36,7 @@ class Donut extends React.Component {
                         }}
                     />
                 </svg>
-            </Waypoint>
+            </div>
         );
     }
 }

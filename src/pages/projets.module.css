@@ -1,55 +1,64 @@
 ul {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 li {
-  list-style-type: none;
+    list-style-type: none;
+}
+
+button {
+    border: none;
+}
+
+button::-moz-focus-inner {
+    border: none;
 }
 
 .grid {
-  display: grid;
-  padding: 0;
+    display: grid;
+    padding: 0;
 }
 
 .item {
-  width: 25%;
-  padding: 0.5rem;
+    width: 25%;
+    padding: 0.5rem;
 }
 
 .filterMenu {
-  margin: 0.5rem 0 0.5rem;
-  display: flex;
-  flex-direction: row;
+    margin: 0.5rem 0 0.5rem;
+    display: flex;
+    flex-direction: row;
 }
 
-.filterMenu li {
-  padding: 0.5rem;
-  margin: 0.5rem;
-  background-color: lightgrey;
-  color: grey;
-  cursor: pointer;
+.filterMenu button {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: lightgrey;
+    color: grey;
+    cursor: pointer;
+    border-radius: 0.2rem;
 }
 
-.filterMenu li.highlighted {
-  background-color: var(--main-color);
-  color: white;
+.filterMenu button.highlighted {
+    background-color: var(--main-color);
+    color: white;
 }
 
 @media only screen and (max-width: 1200px) {
-  .item {
-    width: 33.33%;
-  }
+    .item {
+        width: 33.33%;
+    }
 }
 
 @media only screen and (max-width: 960px) {
-  .item {
-    width: 50%;
-  }
+    .item {
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-  .item {
-    width: 100%;
-  }
+    .item {
+        width: 100%;
+    }
 }

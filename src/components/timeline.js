@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Link } from 'gatsby';
-
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 import 'animate.css/animate.min.css';
@@ -20,12 +19,13 @@ const Timeline = ({ title, data }) => {
                 <ul>
                     {data.map(({ node }) => (
                         <ScrollAnimation
+                            key={node.id}
                             animateIn="fadeInUp"
                             duration={0.5}
                             animateOnce={true}
                             className={styles.item}
                         >
-                            <li key={node.id}>
+                            <li>
                                 <div className={styles.content}>
                                     <p>
                                         {dateFormat === 'year' && (
@@ -61,7 +61,7 @@ const Timeline = ({ title, data }) => {
                                                 <span className={styles.dates}>
                                                     {new Date(
                                                         node.start
-                                                    ).getYear() ==
+                                                    ).getYear() ===
                                                     new Date(node.end).getYear()
                                                         ? new Date(
                                                               node.start
@@ -90,11 +90,13 @@ const Timeline = ({ title, data }) => {
                                     {node.company ? (
                                         <h3>
                                             <span className={styles.entity}>
-                                                <Link
+                                                <AniLink
+                                                    paintDrip
+                                                    color="rebeccapurple"
                                                     to={`/media/${node.company.slug}`}
                                                 >
                                                     {node.company.name}
-                                                </Link>
+                                                </AniLink>
                                             </span>
                                             , {node.location}
                                         </h3>
