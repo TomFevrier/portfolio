@@ -5,6 +5,10 @@ import Donut from './donut';
 
 import styles from './skills.module.css';
 
+if (typeof window === 'undefined') {
+    global.window = {};
+}
+
 const Skills = ({ title }) => {
     const [animate, setAnimate] = useState(false);
     const skillContainerRef = useRef(null);
