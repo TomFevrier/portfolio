@@ -1,0 +1,18 @@
+.skillCategory {
+    width: 400px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.skillCategory h3 {
+    text-align: center;
+}
+
+.skillCategory ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.skillCategory li p {
+    text-align: center;
+    font: 800 1rem 'Roboto', sans-serif;
+}

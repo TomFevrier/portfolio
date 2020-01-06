@@ -28,73 +28,52 @@ const ProjectTemplate = ({ data }) => {
             <SEO title={data.strapiProject.title} />
             <article>
                 <h1>{data.strapiProject.title}</h1>
-                <p>
+                <p className={styles.subtitle}>
                     {data.strapiProject.category !== 'other' && (
                         <span className={styles.slug}>
                             {categories[data.strapiProject.category]}
                         </span>
                     )}
-                    <AniLink
-                        paintDrip
-                        color="rebeccapurple"
-                        to={`/media/${data.strapiProject.publisher.slug}`}
-                        className={styles.publisher}
-                    >
-                        <span>{data.strapiProject.publisher.name}</span>
-                    </AniLink>
-                    {!data.strapiProject.publisher.name.startsWith(
-                        'Projet '
-                    ) && (
-                        <span className={styles.date}>
-                            &nbsp;&mdash;&nbsp;Publié le&nbsp;
-                            {new Date(
-                                data.strapiProject.date
-                            ).toLocaleDateString('fr-FR', {
-                                day: 'numeric',
-                                month: 'long',
-                                year: 'numeric',
-                            })}
-                        </span>
-                    )}
-                    {data.strapiProject.publisher.name.startsWith(
-                        'Projet '
-                    ) && (
-                        <span className={styles.date}>
-                            &nbsp;&mdash;&nbsp;Réalisé en&nbsp;
-                            {new Date(
-                                data.strapiProject.date
-                            ).toLocaleDateString('fr-FR', {
-                                month: 'long',
-                                year: 'numeric',
-                            })}
-                        </span>
-                    )}
+                    <span className={styles.publicationInfo}>
+                        <AniLink
+                            paintDrip
+                            color="rebeccapurple"
+                            to={`/media/${data.strapiProject.publisher.slug}`}
+                            className={styles.publisher}
+                        >
+                            <span>{data.strapiProject.publisher.name}</span>
+                        </AniLink>
+                        {!data.strapiProject.publisher.name.startsWith(
+                            'Projet '
+                        ) && (
+                            <span className={styles.date}>
+                                &nbsp;&mdash;&nbsp;Publié le&nbsp;
+                                {new Date(
+                                    data.strapiProject.date
+                                ).toLocaleDateString('fr-FR', {
+                                    day: 'numeric',
+                                    month: 'long',
+                                    year: 'numeric',
+                                })}
+                            </span>
+                        )}
+                        {data.strapiProject.publisher.name.startsWith(
+                            'Projet '
+                        ) && (
+                            <span className={styles.date}>
+                                &nbsp;&mdash;&nbsp;Réalisé en&nbsp;
+                                {new Date(
+                                    data.strapiProject.date
+                                ).toLocaleDateString('fr-FR', {
+                                    month: 'long',
+                                    year: 'numeric',
+                                })}
+                            </span>
+                        )}
+                    </span>
                 </p>
                 {data.strapiProject.authors && (
                     <p>Avec {data.strapiProject.authors}</p>
-                )}
-                {(data.strapiProject.related.length > 0 ||
-                    data.strapiProject.related_auto.length > 0) && (
-                    <>
-                        <h3>Dans le même genre...</h3>
-                        <ul className={styles.relatedGrid}>
-                            {data.strapiProject.related.length > 0 &&
-                                data.strapiProject.related.map(node => (
-                                    <li
-                                        key={node.id}
-                                        className={styles.relatedItem}
-                                    >
-                                        <RelatedProject {...node} />
-                                    </li>
-                                ))}
-                            {data.strapiProject.related_auto.length > 0 &&
-                                data.strapiProject.related_auto.map(node => (
-                                    <li key={node.id} className={styles.item}>
-                                        <RelatedProject {...node} />
-                                    </li>
-                                ))}
-                        </ul>
-                    </>
                 )}
                 {data.strapiProject.video && (
                     <a
@@ -103,7 +82,11 @@ const ProjectTemplate = ({ data }) => {
                         rel="noopener noreferrer"
                     >
                         <ReactPlayer
-                            url={data.strapiProject.video.childImageSharp.fluid}
+                            url={
+                                data.strapiProject.video.internal.description.match(
+                                    /https:\/\/.+\.mp4/
+                                )[0]
+                            }
                             width="100%"
                             height="auto"
                             playing
@@ -141,6 +124,29 @@ const ProjectTemplate = ({ data }) => {
                         </p>
                     )}
                 </div>
+                {(data.strapiProject.related.length > 0 ||
+                    data.strapiProject.related_auto.length > 0) && (
+                    <div className={styles.related}>
+                        <h3>Dans le même genre...</h3>
+                        <ul className={styles.relatedGrid}>
+                            {data.strapiProject.related.length > 0 &&
+                                data.strapiProject.related.map(node => (
+                                    <li
+                                        key={node.id}
+                                        className={styles.relatedItem}
+                                    >
+                                        <RelatedProject {...node} />
+                                    </li>
+                                ))}
+                            {data.strapiProject.related_auto.length > 0 &&
+                                data.strapiProject.related_auto.map(node => (
+                                    <li key={node.id} className={styles.item}>
+                                        <RelatedProject {...node} />
+                                    </li>
+                                ))}
+                        </ul>
+                    </div>
+                )}
             </article>
         </Layout>
     );
@@ -171,6 +177,12 @@ export const query = graphql`
                     fluid(maxWidth: 1000) {
                         ...GatsbyImageSharpFluid
                     }
+                }
+            }
+            video {
+                id
+                internal {
+                    description
                 }
             }
             content

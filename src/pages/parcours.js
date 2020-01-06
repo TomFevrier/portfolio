@@ -6,7 +6,9 @@ import Timeline from '../components/timeline';
 import Skills from '../components/skills';
 import SEO from '../components/seo';
 
-import './parcours.module.css';
+import styles from './parcours.module.css';
+
+import resume from '../assets/CV_TomFevrier.pdf';
 
 const ResumePage = ({ data }) => {
     const studies = [
@@ -74,6 +76,15 @@ const ResumePage = ({ data }) => {
                 />
                 <Timeline title="Études" data={studies} />
                 <Skills title="Compétences" />
+                <a
+                    href={resume}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.button}
+                    download={'CV_TomFévrier.pdf'}
+                >
+                    Télécharger le CV en PDF
+                </a>
             </article>
         </Layout>
     );

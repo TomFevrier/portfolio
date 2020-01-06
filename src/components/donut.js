@@ -7,32 +7,37 @@ class Donut extends React.Component {
         super(props);
         this.animateDonut = this.animateDonut.bind(this);
         this.circle = React.createRef();
+        this.size = 80;
     }
 
     animateDonut() {
         this.circle.current.style.strokeDasharray = `${this.props.data.level *
-            63}, 315`;
+            Math.ceil((Math.PI * this.size) / 5)}, ${Math.ceil(
+            Math.PI * this.size
+        )}`;
     }
 
     render() {
         if (this.props.animate) this.animateDonut();
         return (
             <div className={styles.donut}>
-                <svg width="110" height="110">
+                <svg width={this.size + 10} height={this.size + 10}>
                     <circle
                         className={styles.background}
-                        cx="55"
-                        cy="55"
-                        r="50"
+                        cx={this.size / 2 + 5}
+                        cy={this.size / 2 + 5}
+                        r={this.size / 2}
                     />
                     <circle
                         ref={this.circle}
                         className={styles.full}
-                        cx="55"
-                        cy="55"
-                        r="50"
+                        cx={this.size / 2 + 5}
+                        cy={this.size / 2 + 5}
+                        r={this.size / 2}
                         style={{
-                            strokeDasharray: '0, 315',
+                            strokeDasharray: `0, ${Math.ceil(
+                                Math.PI * this.size
+                            )}`,
                         }}
                     />
                 </svg>

@@ -50,7 +50,7 @@ class ProjectsPage extends React.Component {
                 <ul className={styles.filterMenu}>
                     {this.categories &&
                         this.categories.map(category => (
-                            <li>
+                            <li key={category.id}>
                                 <button
                                     id={category.id}
                                     className={

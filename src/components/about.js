@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faGithubSquare,
@@ -7,7 +8,9 @@ import {
     faLinkedin,
 } from '@fortawesome/free-brands-svg-icons';
 
-import { Link, useStaticQuery } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
+
+import { useStaticQuery } from 'gatsby';
 
 import styles from './about.module.css';
 
@@ -60,9 +63,13 @@ const About = () => {
                             <span key={node.id}>
                                 {index > 0 && ', '}
                                 {node.company ? (
-                                    <Link to={`/media/${node.company.slug}`}>
+                                    <AniLink
+                                        paintDrip
+                                        color="rebeccapurple"
+                                        to={`/media/${node.company.slug}`}
+                                    >
                                         {node.company.name}
-                                    </Link>
+                                    </AniLink>
                                 ) : (
                                     node.companyString
                                 )}

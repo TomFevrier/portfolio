@@ -7,24 +7,38 @@ h1 {
     margin: 0;
 }
 
+.subtitle {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.publicationInfo {
+    margin: 0.5rem 0;
+}
+
 .slug {
-    font: 800 1.1rem 'Assistant', sans-serif;
+    font: 800 1rem 'Assistant', sans-serif;
     text-transform: uppercase;
     color: white;
     background-color: rebeccapurple;
     width: fit-content;
     padding: 0.5rem;
     border-radius: 0.2rem;
-    margin: 0.5rem 0.5rem 0.5rem 0;
+    margin-right: 0.5rem;
 }
 
 .date {
     color: grey;
 }
 
+.related {
+    border-top: 1px solid lightgrey;
+}
+
 .relatedGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     padding: 0;
 }
 
@@ -34,19 +48,23 @@ h1 {
 }
 
 @media only screen and (max-width: 1200px) {
-    .grid {
-        grid-template-columns: 1fr;
+    .relatedGrid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media only screen and (max-width: 960px) {
-    .grid {
+    .relatedGrid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media only screen and (max-width: 600px) {
-    .grid {
+    .relatedGrid {
         grid-template-columns: 1fr;
+    }
+    .subtitle {
+        flex-direction: column;
+        align-items: start;
     }
 }
