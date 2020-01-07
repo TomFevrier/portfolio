@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
+
+import classnames from 'classnames';
 
 import styles from './header.module.css';
 
@@ -23,6 +25,15 @@ const Header = ({ siteTitle, homepage }) => {
             }
         `
     );
+
+    const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+    const ref = React.createRef();
+
+    const toggleMobileMenu = () => {
+        console.log('test');
+        setShowMobileMenu(!showMobileMenu);
+    };
 
     return (
         <header>
@@ -94,7 +105,7 @@ const Header = ({ siteTitle, homepage }) => {
                         }
                     </AniLink>
                 </h1>
-                <nav>
+                <nav className={showMobileMenu && styles.active}>
                     <ul>
                         {site.siteMetadata.menuPaths.map(e => (
                             <li key={e.path}>
@@ -109,9 +120,14 @@ const Header = ({ siteTitle, homepage }) => {
                         ))}
                     </ul>
                 </nav>
-                <div className={styles.burger}>
-                    <div className={styles.line}></div>
-                    <div className={styles.line}></div>
+                <div
+                    className={classnames(
+                        styles.burger,
+                        showMobileMenu && styles.close
+                    )}
+                    onClick={toggleMobileMenu}
+                    ref={ref}
+                >
                     <div className={styles.line}></div>
                 </div>
             </div>
