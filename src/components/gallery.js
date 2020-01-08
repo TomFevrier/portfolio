@@ -17,7 +17,6 @@ class Gallery extends React.Component {
     }
 
     enlarge(imgSrc) {
-        console.log('enlarging');
         this.setState({
             lightboxOpen: true,
             imgSrc: imgSrc,
@@ -25,25 +24,27 @@ class Gallery extends React.Component {
     }
 
     close() {
-        console.log('closing');
         this.setState({
             lightboxOpen: false,
         });
     }
 
     render() {
+        console.log(this.props.pictures);
         return (
             <>
                 <ul className={styles.grid}>
-                    {this.props.strapiProject.pictures.map(e => (
-                        <li
-                            key={e.id}
-                            className={styles.item}
-                            onClick={() => this.enlarge(e.localFile)}
-                        >
-                            <Img fluid={e.localFile.childImageSharp.fluid} />
-                        </li>
-                    ))}
+                    {this.props.pictures
+                        .filter(e => e)
+                        .map(e => (
+                            <li
+                                key={e.id}
+                                className={styles.item}
+                                onClick={() => this.enlarge(e)}
+                            >
+                                <Img fluid={e.childImageSharp.fluid} />
+                            </li>
+                        ))}
                 </ul>
                 <LightBox
                     lightboxOpen={this.state.lightboxOpen}

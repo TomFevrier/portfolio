@@ -105,7 +105,7 @@ const Header = ({ siteTitle, homepage }) => {
                         }
                     </AniLink>
                 </h1>
-                <nav className={showMobileMenu && styles.active}>
+                <nav className={showMobileMenu ? styles.active : ''}>
                     <ul>
                         {site.siteMetadata.menuPaths.map(e => (
                             <li key={e.path}>
@@ -123,7 +123,7 @@ const Header = ({ siteTitle, homepage }) => {
                 <div
                     className={classnames(
                         styles.burger,
-                        showMobileMenu && styles.close
+                        showMobileMenu ? styles.close : ''
                     )}
                     onClick={toggleMobileMenu}
                     ref={ref}

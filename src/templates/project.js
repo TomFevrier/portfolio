@@ -109,7 +109,6 @@ const ProjectTemplate = ({ data }) => {
                             />
                         </a>
                     )}
-                {data.strapiProject.pictures && <Gallery {...data} />}
                 <div className={styles.content}>
                     <ReactMarkdown source={data.strapiProject.content} />
                     {data.strapiProject.link && (
@@ -124,6 +123,16 @@ const ProjectTemplate = ({ data }) => {
                         </p>
                     )}
                 </div>
+                {data.strapiProject.picture1 && (
+                    <Gallery
+                        pictures={[
+                            data.strapiProject.picture1,
+                            data.strapiProject.picture2,
+                            data.strapiProject.picture3,
+                            data.strapiProject.picture4,
+                        ]}
+                    />
+                )}
                 {(data.strapiProject.related.length > 0 ||
                     data.strapiProject.related_auto.length > 0) && (
                     <div className={styles.related}>
@@ -174,7 +183,7 @@ export const query = graphql`
             }
             featured_image {
                 childImageSharp {
-                    fluid(maxWidth: 1000) {
+                    fluid(maxWidth: 2048) {
                         ...GatsbyImageSharpFluid
                     }
                 }
@@ -186,17 +195,38 @@ export const query = graphql`
                 }
             }
             content
+            picture1 {
+                id
+                childImageSharp {
+                    fluid(maxWidth: 2048) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            picture2 {
+                id
+                childImageSharp {
+                    fluid(maxWidth: 2048) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            picture3 {
+                id
+                childImageSharp {
+                    fluid(maxWidth: 2048) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            picture4 {
+                id
+                childImageSharp {
+                    fluid(maxWidth: 2048) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
         }
     }
 `;
-
-// pictures {
-// 	id
-// 	localFile {
-// 		childImageSharp {
-// 			fluid(maxWidth: 1500) {
-// 				...GatsbyImageSharpFluid
-// 			}
-// 		}
-// 	}
-// }

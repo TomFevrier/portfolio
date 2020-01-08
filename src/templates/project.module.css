@@ -38,19 +38,13 @@ h1 {
 
 .relatedGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 0;
 }
 
 .relatedItem {
     width: 100%;
     padding: 0.5rem;
-}
-
-@media only screen and (max-width: 1200px) {
-    .relatedGrid {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 @media only screen and (max-width: 960px) {

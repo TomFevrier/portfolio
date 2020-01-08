@@ -15,7 +15,6 @@ const IndexPage = ({ data }) => (
         <br />
         <h2>Derniers projets</h2>
         <ul className={styles.grid}>
-            {console.log(data.allStrapiProject.edges)}
             {data.allStrapiProject.edges.map(({ node }) => (
                 <li key={node.id} className={styles.item}>
                     <ProjectPreview {...node} />
