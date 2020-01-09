@@ -1,36 +1,36 @@
 ul {
-  margin: 0;
+    margin: 0;
 }
 
 li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
 }
 
 .item {
-  width: 100%;
-  padding: 0.5rem;
+    width: 100%;
+    padding: 0.5rem;
 }
 
 @media only screen and (max-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media only screen and (max-width: 960px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media only screen and (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }

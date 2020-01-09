@@ -16,14 +16,10 @@ const NotFoundPage = () => {
         if (!initialized) {
             setInitialized(true);
             window
-                .fetch(
-                    `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=sad`
-                )
+                .fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=sad`)
                 .then(response => response.json())
                 .then(data => {
-                    const url = data.data.image_original_url
-                        .replace(/media[0-9]/, 'i')
-                        .replace('gif', 'webp');
+                    const url = data.data.image_original_url.replace(/media[0-9]/, 'i').replace('gif', 'webp');
                     //console.log(url)
                     setState({ url });
                 });

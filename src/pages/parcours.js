@@ -19,8 +19,7 @@ const ResumePage = ({ data }) => {
                 location: 'Paris',
                 start: '2019',
                 end: '2020',
-                description:
-                    'Année de césure : perfectionnement en développement informatique',
+                description: 'Année de césure : perfectionnement en développement informatique',
             },
         },
         {
@@ -60,8 +59,7 @@ const ResumePage = ({ data }) => {
                 location: 'Arras',
                 start: '2012',
                 end: '2015',
-                description:
-                    'Baccalauréat scientifique obtenu avec mention très bien',
+                description: 'Baccalauréat scientifique obtenu avec mention très bien',
             },
         },
     ];
@@ -70,19 +68,10 @@ const ResumePage = ({ data }) => {
         <Layout>
             <SEO title="Parcours" />
             <article>
-                <Timeline
-                    title="Expériences professionnelles"
-                    data={data.allStrapiJob.edges}
-                />
+                <Timeline title="Expériences professionnelles" data={data.allStrapiJob.edges} />
                 <Timeline title="Études" data={studies} />
                 <Skills title="Compétences" />
-                <a
-                    href={resume}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.button}
-                    download={'CV_TomFévrier.pdf'}
-                >
+                <a href={resume} target="_blank" rel="noopener noreferrer" className={styles.button} download={'CV_TomFévrier.pdf'}>
                     Télécharger le CV en PDF
                 </a>
             </article>

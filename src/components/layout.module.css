@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Assistant:600,800|Paytone+One:600,800&display=swap');
 
+@font-face {
+    font-family: 'Aurebesh';
+    src: url('../assets/Aurebesh.ttf') format('truetype');
+}
+
 :root {
     --main-color: rebeccapurple;
 }

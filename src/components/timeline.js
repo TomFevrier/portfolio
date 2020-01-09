@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ReactMarkdown from 'react-markdown';
+
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import ScrollAnimation from 'react-animate-on-scroll';
 
@@ -18,83 +20,31 @@ const Timeline = ({ title, data }) => {
             <div className={styles.container}>
                 <ul>
                     {data.map(({ node }) => (
-                        <ScrollAnimation
-                            key={node.id}
-                            animateIn="fadeInUp"
-                            duration={0.5}
-                            animateOnce={true}
-                            className={styles.item}
-                        >
+                        <ScrollAnimation key={node.id} animateIn="fadeInUp" duration={0.5} animateOnce={true} className={styles.item}>
                             <li>
                                 <div className={styles.content}>
                                     <p>
                                         {dateFormat === 'year' && (
                                             <span className={styles.dates}>
-                                                {new Date(
-                                                    node.start
-                                                ).getFullYear()}{' '}
-                                                &ndash;{' '}
-                                                {new Date(
-                                                    node.end
-                                                ).getFullYear()}
+                                                {new Date(node.start).getFullYear()} &ndash; {new Date(node.end).getFullYear()}
                                             </span>
                                         )}
-                                        {dateFormat === 'full' &&
-                                            new Date(node.start).getMonth() ===
-                                                new Date(
-                                                    node.end
-                                                ).getMonth() && (
-                                                <span className={styles.dates}>
-                                                    {new Date(
-                                                        node.start
-                                                    ).toLocaleDateString(
-                                                        'fr-FR',
-                                                        dateOptions
-                                                    )}
-                                                </span>
-                                            )}
-                                        {dateFormat === 'full' &&
-                                            new Date(node.start).getMonth() !==
-                                                new Date(
-                                                    node.end
-                                                ).getMonth() && (
-                                                <span className={styles.dates}>
-                                                    {new Date(
-                                                        node.start
-                                                    ).getYear() ===
-                                                    new Date(node.end).getYear()
-                                                        ? new Date(
-                                                              node.start
-                                                          ).toLocaleDateString(
-                                                              'fr-FR',
-                                                              {
-                                                                  month: 'long',
-                                                              }
-                                                          )
-                                                        : new Date(
-                                                              node.start
-                                                          ).toLocaleDateString(
-                                                              'fr-FR',
-                                                              dateOptions
-                                                          )}{' '}
-                                                    &ndash;{' '}
-                                                    {new Date(
-                                                        node.end
-                                                    ).toLocaleDateString(
-                                                        'fr-FR',
-                                                        dateOptions
-                                                    )}
-                                                </span>
-                                            )}
+                                        {dateFormat === 'full' && new Date(node.start).getMonth() === new Date(node.end).getMonth() && <span className={styles.dates}>{new Date(node.start).toLocaleDateString('fr-FR', dateOptions)}</span>}
+                                        {dateFormat === 'full' && new Date(node.start).getMonth() !== new Date(node.end).getMonth() && (
+                                            <span className={styles.dates}>
+                                                {new Date(node.start).getYear() === new Date(node.end).getYear()
+                                                    ? new Date(node.start).toLocaleDateString('fr-FR', {
+                                                          month: 'long',
+                                                      })
+                                                    : new Date(node.start).toLocaleDateString('fr-FR', dateOptions)}{' '}
+                                                &ndash; {new Date(node.end).toLocaleDateString('fr-FR', dateOptions)}
+                                            </span>
+                                        )}
                                     </p>
                                     {node.company ? (
                                         <h3>
                                             <span className={styles.entity}>
-                                                <AniLink
-                                                    paintDrip
-                                                    color="rebeccapurple"
-                                                    to={`/media/${node.company.slug}`}
-                                                >
+                                                <AniLink paintDrip color="rebeccapurple" to={`/media/${node.company.slug}`}>
                                                     {node.company.name}
                                                 </AniLink>
                                             </span>
@@ -103,22 +53,16 @@ const Timeline = ({ title, data }) => {
                                     ) : (
                                         node.companyString && (
                                             <h3>
-                                                <span className={styles.entity}>
-                                                    {node.companyString}
-                                                </span>
-                                                , {node.location}
+                                                <span className={styles.entity}>{node.companyString}</span>, {node.location}
                                             </h3>
                                         )
                                     )}
                                     {node.school && (
                                         <h3>
-                                            <span className={styles.entity}>
-                                                {node.school}
-                                            </span>
-                                            , {node.location}
+                                            <span className={styles.entity}>{node.school}</span>, {node.location}
                                         </h3>
                                     )}
-                                    <p>{node.description}</p>
+                                    <ReactMarkdown source={node.description} />
                                 </div>
                             </li>
                         </ScrollAnimation>

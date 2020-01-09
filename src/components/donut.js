@@ -11,10 +11,7 @@ class Donut extends React.Component {
     }
 
     animateDonut() {
-        this.circle.current.style.strokeDasharray = `${this.props.data.level *
-            Math.ceil((Math.PI * this.size) / 5)}, ${Math.ceil(
-            Math.PI * this.size
-        )}`;
+        this.circle.current.style.strokeDasharray = `${this.props.data.level * Math.ceil((Math.PI * this.size) / 5)}, ${Math.ceil(Math.PI * this.size)}`;
     }
 
     render() {
@@ -22,12 +19,7 @@ class Donut extends React.Component {
         return (
             <div className={styles.donut}>
                 <svg width={this.size + 10} height={this.size + 10}>
-                    <circle
-                        className={styles.background}
-                        cx={this.size / 2 + 5}
-                        cy={this.size / 2 + 5}
-                        r={this.size / 2}
-                    />
+                    <circle className={styles.background} cx={this.size / 2 + 5} cy={this.size / 2 + 5} r={this.size / 2} />
                     <circle
                         ref={this.circle}
                         className={styles.full}
@@ -35,9 +27,7 @@ class Donut extends React.Component {
                         cy={this.size / 2 + 5}
                         r={this.size / 2}
                         style={{
-                            strokeDasharray: `0, ${Math.ceil(
-                                Math.PI * this.size
-                            )}`,
+                            strokeDasharray: `0, ${Math.ceil(Math.PI * this.size)}`,
                         }}
                     />
                 </svg>

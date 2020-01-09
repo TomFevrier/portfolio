@@ -30,9 +30,7 @@ const RelatedProject = ({ id }) => (
             }
         `}
         render={data => {
-            const node = data.allStrapiProject.edges.find(
-                ({ node }) => node.id === `Project_${id}`
-            ).node;
+            const node = data.allStrapiProject.edges.find(({ node }) => node.id === `Project_${id}`).node;
             return <ProjectPreview {...node} />;
         }}
     />

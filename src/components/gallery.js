@@ -30,27 +30,18 @@ class Gallery extends React.Component {
     }
 
     render() {
-        console.log(this.props.pictures);
         return (
             <>
                 <ul className={styles.grid}>
                     {this.props.pictures
                         .filter(e => e)
                         .map(e => (
-                            <li
-                                key={e.id}
-                                className={styles.item}
-                                onClick={() => this.enlarge(e)}
-                            >
+                            <li key={e.id} className={styles.item} onClick={() => this.enlarge(e)}>
                                 <Img fluid={e.childImageSharp.fluid} />
                             </li>
                         ))}
                 </ul>
-                <LightBox
-                    lightboxOpen={this.state.lightboxOpen}
-                    imgSrc={this.state.imgSrc}
-                    onClick={this.close}
-                />
+                <LightBox lightboxOpen={this.state.lightboxOpen} imgSrc={this.state.imgSrc} onClick={this.close} />
             </>
         );
     }

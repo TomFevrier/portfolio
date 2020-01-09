@@ -12,12 +12,7 @@ const Skills = ({ category, data }) => {
 
     if (typeof window !== 'undefined') {
         window.addEventListener('scroll', () => {
-            if (
-                ref.current &&
-                ref.current.getBoundingClientRect().top <
-                    0.8 * window.innerHeight
-            )
-                setAnimate(true);
+            if (ref.current && ref.current.getBoundingClientRect().top < 0.8 * window.innerHeight) setAnimate(true);
         });
     }
 

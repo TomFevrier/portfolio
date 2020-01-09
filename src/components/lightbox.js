@@ -16,14 +16,8 @@ const LightBox = props => (
             className={styles.lightbox}
             onClick={event => event.stopPropagation()}
             style={{
-                transform: props.lightboxOpen
-                    ? 'translate(-50%, -50%) scale(1)'
-                    : 'translate(-50%, -50%) scale(0.8)',
-                width: `calc(90vh * ${
-                    props.imgSrc
-                        ? props.imgSrc.childImageSharp.fluid.aspectRatio
-                        : 1
-                })`,
+                transform: props.lightboxOpen ? 'translate(-50%, -50%) scale(1)' : 'translate(-50%, -50%) scale(0.8)',
+                width: `calc(90vh * ${props.imgSrc ? props.imgSrc.childImageSharp.fluid.aspectRatio : 1})`,
             }}
         >
             {props.imgSrc && <Img fluid={props.imgSrc.childImageSharp.fluid} />}

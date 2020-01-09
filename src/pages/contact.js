@@ -65,12 +65,7 @@ class Contact extends React.Component {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: Object.keys(data)
-                .map(
-                    key =>
-                        `${encodeURIComponent(key)}=${encodeURIComponent(
-                            data[key]
-                        )}`
-                )
+                .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
                 .join('&'),
         })
             .then(() => navigate(form.getAttribute('action')))
@@ -82,48 +77,20 @@ class Contact extends React.Component {
             <Layout>
                 <SEO title="Contact" />
                 <div>
-                    <form
-                        name="Contact"
-                        method="POST"
-                        action="/"
-                        data-netlify="true"
-                        data-netlify-honeypot="bot-field"
-                        onSubmit={this.handleSubmit}
-                    >
+                    <form name="Contact" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
                         <input type="hidden" name="form-name" value="contact" />
                         <h2 className={styles.title}>Contactez-moi !</h2>
                         <div>
                             <label htmlFor="name">Nom*</label>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder={
-                                    this.placeholders[this.state.alea].name
-                                }
-                                required
-                                onChange={this.handleChange}
-                            />
+                            <input type="text" name="name" placeholder={this.placeholders[this.state.alea].name} required onChange={this.handleChange} />
                         </div>
                         <div>
                             <label htmlFor="email">Adresse e-mail*</label>
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder={
-                                    this.placeholders[this.state.alea].email
-                                }
-                                required
-                                onChange={this.handleChange}
-                            />
+                            <input type="email" name="email" placeholder={this.placeholders[this.state.alea].email} required onChange={this.handleChange} />
                         </div>
                         <div className={styles.large}>
                             <label htmlFor="message">Message*</label>
-                            <textarea
-                                name="message"
-                                rows="10"
-                                required
-                                onChange={this.handleChange}
-                            />
+                            <textarea name="message" rows="10" required onChange={this.handleChange} />
                         </div>
                         <button type="submit">Envoyer</button>
                     </form>

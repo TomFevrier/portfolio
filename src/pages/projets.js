@@ -51,15 +51,7 @@ class ProjectsPage extends React.Component {
                     {this.categories &&
                         this.categories.map(category => (
                             <li key={category.id}>
-                                <button
-                                    id={category.id}
-                                    className={
-                                        this.state.filter === category.id
-                                            ? styles.highlighted
-                                            : ''
-                                    }
-                                    onClick={this.handleClick}
-                                >
+                                <button id={category.id} className={this.state.filter === category.id ? styles.highlighted : ''} onClick={this.handleClick}>
                                     {category.value}
                                 </button>
                             </li>
@@ -68,10 +60,7 @@ class ProjectsPage extends React.Component {
 
                 <ul className={styles.grid}>
                     {this.props.data.allStrapiProject.edges.map(({ node }) => (
-                        <li
-                            key={node.id}
-                            className={classNames(styles.item, node.category)}
-                        >
+                        <li key={node.id} className={classNames(styles.item, node.category)}>
                             <ProjectPreview {...node} />
                         </li>
                     ))}

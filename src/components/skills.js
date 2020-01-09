@@ -34,13 +34,7 @@ const Skills = ({ title }) => {
             <h2 className={styles.title}>Compétences</h2>
             <div className={styles.container}>
                 {categories.map(category => (
-                    <SkillCategory
-                        key={category.id}
-                        category={category}
-                        data={data.allStrapiSkill.edges.filter(
-                            ({ node }) => node.category === category.id
-                        )}
-                    />
+                    <SkillCategory key={category.id} category={category} data={data.allStrapiSkill.edges.filter(({ node }) => node.category === category.id)} />
                 ))}
             </div>
         </section>

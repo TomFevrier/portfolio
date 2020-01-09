@@ -29,12 +29,7 @@ const PublisherTemplate = ({ data }) => {
                 {data.strapiPublisher.projects.map(node => {
                     node.publisher = { name: data.strapiPublisher.name };
                     return (
-                        <AniLink
-                            key={node.id}
-                            paintDrip
-                            color="rebeccapurple"
-                            to={`/projet/${node.slug}`}
-                        >
+                        <AniLink key={node.id} paintDrip color="rebeccapurple" to={`/projet/${node.slug}`}>
                             <li className={styles.item}>
                                 <ProjectPreview {...node} />
                             </li>

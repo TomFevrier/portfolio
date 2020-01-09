@@ -7,12 +7,7 @@ import styles from './project-preview.module.css';
 const ProjectPreview = node => (
     <AniLink paintDrip color="rebeccapurple" to={`/projet/${node.slug}`}>
         <div className={styles.card}>
-            {node.featured_image && (
-                <Img
-                    fluid={node.featured_image.childImageSharp.fluid}
-                    className={styles.thumbnail}
-                />
-            )}
+            {node.featured_image && <Img fluid={node.featured_image.childImageSharp.fluid} className={styles.thumbnail} />}
             <div className={styles.cache}></div>
             <div className={styles.info}>
                 <h2>
@@ -24,11 +19,7 @@ const ProjectPreview = node => (
                             <b>{node.publisher.name}</b> &mdash;{' '}
                         </span>
                     )}
-                    {!node.publisher.name.startsWith('Projet') && (
-                        <span>
-                            {new Date(node.date).toLocaleDateString('fr-FR')}
-                        </span>
-                    )}
+                    {!node.publisher.name.startsWith('Projet') && <span>{new Date(node.date).toLocaleDateString('fr-FR')}</span>}
                     {node.publisher.name.startsWith('Projet') && (
                         <span>
                             {new Date(node.date).toLocaleDateString('fr-FR', {

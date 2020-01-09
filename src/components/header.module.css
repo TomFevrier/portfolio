@@ -3,17 +3,22 @@ header {
     height: 5.4rem;
     z-index: 42;
     background-color: #101010;
-    /* background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png"); */
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     padding: 1rem;
     box-shadow: 0 0.2rem 1rem black;
 }
 
 header h1 a {
-    /* font: 800 2.2rem "Paytone One", sans-serif; */
     color: white;
     text-transform: uppercase;
     text-decoration: none;
+}
+
+header h1 a:hover {
+    color: white;
+}
+
+header h1 a span {
+    transform: translateY(20%);
 }
 
 header > div {
@@ -31,6 +36,11 @@ nav ul {
     display: flex;
     width: 20rem;
     justify-content: space-between;
+    transform: translateY(15%);
+}
+
+nav .konami {
+    width: 25rem;
 }
 
 nav ul li a {
@@ -124,6 +134,11 @@ nav ul li a:hover::after {
     nav ul {
         flex-direction: column;
         align-items: center;
+        transform: none;
+        width: 100%;
+    }
+
+    nav .konami {
         width: 100%;
     }
 
