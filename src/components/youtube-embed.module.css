@@ -1,0 +1,14 @@
+.container {
+    position: relative;
+    overflow: hidden;
+    padding-top: calc(100% / 1.78);
+}
+
+.container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

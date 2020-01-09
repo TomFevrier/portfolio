@@ -8,6 +8,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import YouTubeEmbed from '../components/youtube-embed';
 import RelatedProject from '../components/related-project';
 import Gallery from '../components/gallery';
 
@@ -26,7 +27,10 @@ const ProjectTemplate = ({ data }) => {
         <Layout>
             <SEO title={data.strapiProject.title} />
             <article>
+                {/* Title */}
                 <h2>{data.strapiProject.title}</h2>
+
+                {/* Subtitle */}
                 <p className={styles.subtitle}>
                     {data.strapiProject.category !== 'other' && <span className={styles.slug}>{categories[data.strapiProject.category]}</span>}
                     <span className={styles.publicationInfo}>
@@ -54,20 +58,27 @@ const ProjectTemplate = ({ data }) => {
                         )}
                     </span>
                 </p>
+
+                {/* Authors */}
                 {data.strapiProject.authors && <p>Avec {data.strapiProject.authors}</p>}
+
+                {/* Featured media: image, video or YouTube embed */}
+                {data.strapiProject.featured_image && !data.strapiProject.video && !data.strapiProject.link.includes('youtube') && (
+                    <a href={data.strapiProject.link} target="_blank" rel="noopener noreferrer">
+                        <Img fluid={data.strapiProject.featured_image.childImageSharp.fluid} />
+                    </a>
+                )}
                 {data.strapiProject.video && (
                     <a href={data.strapiProject.link} target="_blank" rel="noopener noreferrer">
                         <ReactPlayer url={data.strapiProject.video.internal.description.match(/https:\/\/.+\.mp4/)[0]} width="100%" height="auto" playing loop />
                     </a>
                 )}
-                {data.strapiProject.featured_image && !data.strapiProject.video && (
-                    <a href={data.strapiProject.link} target="_blank" rel="noopener noreferrer">
-                        <Img fluid={data.strapiProject.featured_image.childImageSharp.fluid} />
-                    </a>
-                )}
+                {data.strapiProject.link && data.strapiProject.link.includes('youtube') && <YouTubeEmbed src={data.strapiProject.link} />}
+
+                {/* Content */}
                 <div className={styles.content}>
                     <ReactMarkdown source={data.strapiProject.content} />
-                    {data.strapiProject.link && (
+                    {data.strapiProject.link && !data.strapiProject.link.includes('youtube') && (
                         <p className={styles.link}>
                             <a href={data.strapiProject.link} target="_blank" rel="noopener noreferrer">
                                 À découvrir ici.
@@ -75,7 +86,11 @@ const ProjectTemplate = ({ data }) => {
                         </p>
                     )}
                 </div>
+
+                {/* Gallery */}
                 {data.strapiProject.picture1 && <Gallery pictures={[data.strapiProject.picture1, data.strapiProject.picture2, data.strapiProject.picture3, data.strapiProject.picture4]} />}
+
+                {/* Related projects */}
                 {(data.strapiProject.related.length > 0 || data.strapiProject.related_auto.length > 0) && (
                     <div className={styles.related}>
                         <h3>Dans le même genre...</h3>
