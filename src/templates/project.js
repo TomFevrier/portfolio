@@ -63,7 +63,7 @@ const ProjectTemplate = ({ data }) => {
                 {data.strapiProject.authors && <p>Avec {data.strapiProject.authors}</p>}
 
                 {/* Featured media: image, video or YouTube embed */}
-                {data.strapiProject.featured_image && !data.strapiProject.video && !data.strapiProject.link.includes('youtube') && (
+                {data.strapiProject.featured_image && !data.strapiProject.video && !(data.strapiProject.link && data.strapiProject.link.includes('youtube')) && (
                     <a href={data.strapiProject.link} target="_blank" rel="noopener noreferrer">
                         <Img fluid={data.strapiProject.featured_image.childImageSharp.fluid} />
                     </a>
