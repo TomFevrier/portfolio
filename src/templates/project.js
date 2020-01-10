@@ -103,7 +103,7 @@ const ProjectTemplate = ({ data }) => {
                                 ))}
                             {data.strapiProject.related_auto.length > 0 &&
                                 data.strapiProject.related_auto.map(node => (
-                                    <li key={node.id} className={styles.item}>
+                                    <li key={node.id} className={styles.relatedItem}>
                                         <RelatedProject {...node} />
                                     </li>
                                 ))}
