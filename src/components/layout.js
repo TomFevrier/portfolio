@@ -67,7 +67,7 @@ class Layout extends React.Component {
     }
 
     handleScroll() {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
             this.setState({ showBackToTop: true });
         } else {
             this.setState({ showBackToTop: false });
