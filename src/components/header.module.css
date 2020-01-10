@@ -81,7 +81,7 @@ nav ul li a:hover::after {
     cursor: pointer;
     width: 2rem;
     height: 1.7rem;
-    transform: translateY(25%);
+    transform: translateY(20%);
 }
 
 .burger > .line,
