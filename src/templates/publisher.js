@@ -10,7 +10,7 @@ import ProjectPreview from '../components/project-preview';
 import styles from '../pages/index.module.css';
 
 const PublisherTemplate = ({ data }) => {
-    var title;
+    let title;
     switch (data.strapiPublisher.name) {
         case 'Projet personnel':
             title = 'Projets personnels';
@@ -21,6 +21,7 @@ const PublisherTemplate = ({ data }) => {
         default:
             title = data.strapiPublisher.name;
     }
+    data.strapiPublisher.projects = data.strapiPublisher.projects.sort((a, b) => new Date(b.date) - new Date(a.date));
     return (
         <Layout>
             <SEO title={title} />

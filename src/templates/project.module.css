@@ -10,6 +10,7 @@ h2 {
 .subtitle {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     margin: 0.5rem 0;
 }
 
@@ -56,9 +57,5 @@ h2 {
 @media only screen and (max-width: 600px) {
     .relatedGrid {
         grid-template-columns: 1fr;
-    }
-    .subtitle {
-        flex-direction: column;
-        align-items: start;
     }
 }
