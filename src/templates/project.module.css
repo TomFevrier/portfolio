@@ -33,6 +33,16 @@ h2 {
     color: grey;
 }
 
+.content ul {
+    font: 1rem 'Roboto', sans-serif;
+    margin-top: -1rem;
+}
+
+.content ul li {
+    margin-left: 1rem;
+    list-style-type: disc;
+}
+
 .related {
     border-top: 1px solid lightgrey;
 }
