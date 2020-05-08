@@ -1,3 +1,7 @@
+### [tomfevrier.io](https://tomfevrier.io)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7f8b86fa-7cf4-44e7-9a21-62838bbbff23/deploy-status)](https://app.netlify.com/sites/tomfevrier-portfolio/deploys)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
