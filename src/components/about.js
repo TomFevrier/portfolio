@@ -35,30 +35,36 @@ const About = () => {
                 <div className={styles.text}>
                     <p>{'Datajournaliste, développeur de nouveaux formats.'}</p>
                     <p>
-                        {"Étudiant à l'"}
+						{"Rédacteur graphique au "}
+						<a href="https://media.lesechos.fr/infographie" target="_blank" rel="noopener noreferrer">
+                            service infographie des Échos
+                        </a>
+						, en formation à l'
                         <a href="https://www.sciencespo.fr/journalisme/" target="_blank" rel="noopener noreferrer">
                             École de Journalisme de Sciences Po Paris
                         </a>
-                        {", en césure à l'"}
+                        {". De retour d'une année de césure à l'"}
                         <a href="https://www.42.fr/" target="_blank" rel="noopener noreferrer">
                             École 42
                         </a>{' '}
-                        pour l'année 2019-2020.
+                        .
                     </p>
                     <p>
                         {'Passé par '}
-                        {data.allStrapiJob.edges.map(({ node }, index) => (
-                            <span key={node.id}>
-                                {index > 0 && ', '}
-                                {node.company ? (
-                                    <AniLink paintDrip color="rebeccapurple" to={`/media/${node.company.slug}`}>
-                                        {node.company.name}
-                                    </AniLink>
-                                ) : (
-                                    node.companyString
-                                )}
-                            </span>
-                        ))}
+                        {data.allStrapiJob.edges
+							.filter(({ node }, index, self) => !node.company || index === self.findIndex(e => e.node.company && e.node.company.name === node.company.name))
+							.map(({ node }, index) => (
+	                            <span key={node.id}>
+	                                {index > 0 && ', '}
+	                                {node.company ? (
+	                                    <AniLink paintDrip color="rebeccapurple" to={`/media/${node.company.slug}`}>
+	                                        {node.company.name}
+	                                    </AniLink>
+	                                ) : (
+	                                    node.companyString
+	                                )}
+	                            </span>
+	                        ))}
                         {'.'}
                     </p>
                     <p>Cinéphile, sérievore, passionné de science-fiction et de nouvelles technologies.</p>
