@@ -12,6 +12,7 @@ const LightBox = props => (
             pointerEvents: props.lightboxOpen ? 'auto' : 'none',
         }}
     >
+		<div className={styles.cache}></div>
         <div
             className={styles.lightbox}
             onClick={event => event.stopPropagation()}

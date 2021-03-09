@@ -123,3 +123,7 @@ footer a {
         width: 100%;
     }
 }
+
+.tl-wrapper {
+	transform: none !important; 
+}
