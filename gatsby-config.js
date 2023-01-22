@@ -24,7 +24,7 @@ module.exports = {
             resolve: 'gatsby-source-strapi',
             options: {
                 apiURL: 'https://tomfevrier-portfolio.herokuapp.com',
-                //apiURL: 'http://localhost:1337',
+                // apiURL: 'http://localhost:1337',
                 contentTypes: [
                     // List of the Content Types you want to be able to request from Gatsby.
                     'project',
@@ -37,14 +37,6 @@ module.exports = {
         },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
-        {
-            resolve: `gatsby-plugin-manifest`,
-            options: {
-                start_url: '/',
-                theme_color: '#663399',
-                icon: 'src/images/icon.png', // This path is relative to the root of the site.
-            },
-        },
         'gatsby-plugin-offline',
         'gatsby-plugin-transition-link',
     ],
