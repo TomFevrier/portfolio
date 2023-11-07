@@ -4,8 +4,8 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import styles from './project-preview.module.css';
 
-const ProjectPreview = node => (
-    <AniLink paintDrip color="rebeccapurple" to={`/projet/${node.slug}`}>
+const ProjectPreview = node => {
+    const card = (
         <div className={styles.card}>
             {node.featured_image && <Img fluid={node.featured_image.childImageSharp.fluid} className={styles.thumbnail} />}
             <div className={styles.cache}></div>
@@ -31,7 +31,21 @@ const ProjectPreview = node => (
                 </p>
             </div>
         </div>
-    </AniLink>
-);
+    );
+
+    if (node.link) {
+        return (
+            <a href={node.link} target="_blank" rel="noopener noreferrer">
+                {card}
+            </a>
+        );
+    }
+
+    return (
+        <AniLink paintDrip color="rebeccapurple" to={`/projet/${node.slug}`}>
+            {card}
+        </AniLink>
+    );
+}
 
 export default ProjectPreview;

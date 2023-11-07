@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto|Assistant:600,800|Paytone+One:600,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Assistant:600,800|Paytone+One:600,800&display=swap');
 
 @font-face {
     font-family: 'Aurebesh';
@@ -16,9 +16,10 @@
 }
 
 html {
-    font-family: sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    font-size: 1.05rem;
 }
 
 body {
@@ -75,7 +76,7 @@ a:hover {
 
 footer {
     color: grey;
-    font: 0.9rem 'Roboto', sans-serif;
+    font: 0.9rem 'Source Sans Pro', sans-serif;
     text-align: center;
     margin: 0 auto;
     margin-top: 4rem;

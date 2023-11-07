@@ -29,7 +29,7 @@ form input {
     border: none;
     border-bottom: 0.2rem solid var(--main-color);
     padding: 0.2rem 0;
-    font: 1rem 'Roboto', sans-serif;
+    font: 1rem 'Source Sans Pro', sans-serif;
 }
 
 form input:invalid {
@@ -40,7 +40,7 @@ form textarea {
     border-color: var(--main-color);
     padding: 0.5rem;
     line-height: 120%;
-    font: 1rem 'Roboto', sans-serif;
+    font: 1rem 'Source Sans Pro', sans-serif;
     border-radius: 0.2rem;
 }
 

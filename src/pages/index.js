@@ -34,7 +34,8 @@ export const pageQuery = graphql`
                     id
                     slug
                     title
-                    date
+                    date,
+                    link,
                     featured_image {
                         childImageSharp {
                             fluid(maxWidth: 600) {

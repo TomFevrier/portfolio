@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithubSquare, faTwitterSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithubSquare, faSquareXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
@@ -23,6 +23,8 @@ const About = () => {
                             name
                             slug
                         }
+                        start
+                        end
                         companyString
                     }
                 }
@@ -35,27 +37,28 @@ const About = () => {
                 <div className={styles.text}>
                     <p>{'Datajournaliste, développeur de nouveaux formats.'}</p>
                     <p>
-						{"Rédacteur graphique au "}
-						<a href="https://media.lesechos.fr/infographie" target="_blank" rel="noopener noreferrer">
-                            service infographie des Échos
+                        <a href="https://www.lesechos.fr/@tom-fevrier" target="_blank" rel="noopener noreferrer">
+                            Journaliste visuel aux Échos
                         </a>
-						, en formation à l'
+						, formé à l’
                         <a href="https://www.sciencespo.fr/journalisme/" target="_blank" rel="noopener noreferrer">
                             École de Journalisme de Sciences Po Paris
                         </a>
-                        {". De retour d'une année de césure à l'"}
+                        {" "}et à l’
                         <a href="https://www.42.fr/" target="_blank" rel="noopener noreferrer">
                             École 42
-                        </a>{' '}
+                        </a>
                         .
                     </p>
                     <p>
                         {'Passé par '}
                         {data.allStrapiJob.edges
-							.filter(({ node }, index, self) => !node.company || index === self.findIndex(e => e.node.company && e.node.company.name === node.company.name))
-							.map(({ node }, index) => (
+                            .filter(({ node }, index, self) => !node.company || index === self.findIndex(e => e.node.company && e.node.company.name === node.company.name))
+                            .sort((a, b) => new Date(b.node.end) - new Date(a.node.end))
+                            .slice(1)
+                            .map(({ node }, index, array) => (
 	                            <span key={node.id}>
-	                                {index > 0 && ', '}
+	                                {index > 0 && (index < array.length - 1 ? ', ' : ' & ')}
 	                                {node.company ? (
 	                                    <AniLink paintDrip color="rebeccapurple" to={`/media/${node.company.slug}`}>
 	                                        {node.company.name}
@@ -72,7 +75,7 @@ const About = () => {
                 <ul className={styles.social}>
                     <li>
                         <a href="https://twitter.com/TomFevrier" target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faTwitterSquare} size="lg" />
+                            <FontAwesomeIcon icon={faSquareXTwitter} size="lg" />
                         </a>
                     </li>
                     <li>

@@ -20,7 +20,7 @@ const Skills = ({ category, data }) => {
         <div className={styles.skillCategory} ref={ref}>
             <h3>{category.value}</h3>
             <ul>
-                {data.map(({ node }) => (
+                {data.sort((a, b) => b.node.level - a.node.level).map(({ node }) => (
                     <li key={node.id}>
                         <Donut data={node} animate={animate} />
                         <ReactMarkdown source={node.name} />

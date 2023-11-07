@@ -19,7 +19,7 @@ const ResumePage = ({ data }) => {
                 location: 'Paris',
                 start: '2019',
                 end: '2020',
-                description: 'Année de césure : perfectionnement en développement informatique.',
+                description: 'Année de césure : perfectionnement en développement informatique.',
             },
         },
         {
@@ -39,7 +39,7 @@ const ResumePage = ({ data }) => {
                 location: 'Nouvelle-Zélande',
                 start: '2017',
                 end: '2018',
-                description: "Troisième année d'études à l'étranger.",
+                description: "Troisième année d’études à l’étranger.",
             },
         },
         {
@@ -49,7 +49,7 @@ const ResumePage = ({ data }) => {
                 location: 'Paris',
                 start: '2015',
                 end: '2018',
-                description: `Double cursus "Sciences et sciences sociales" : double licence en sciences sociales (spécialité en économie) et en informatique.`,
+                description: `Double cursus « Sciences et sciences sociales » : double licence en sciences sociales (spécialité en économie) et en informatique.`,
             },
         },
         {

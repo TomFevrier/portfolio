@@ -19,7 +19,7 @@ const Timeline = ({ title, data }) => {
             <h2 className={styles.title}>{title}</h2>
             <div className={styles.container}>
                 <ul>
-                    {data.map(({ node }) => (
+                    {data.sort((a, b) => new Date(b.node.end) - new Date(a.node.end)).map(({ node }) => (
                         <ScrollAnimation key={node.id} animateIn="fadeInUp" duration={0.5} animateOnce={true} className={styles.item}>
                             <li>
                                 <div className={styles.content}>
