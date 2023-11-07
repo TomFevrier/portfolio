@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import classnames from 'classnames';
 
@@ -38,7 +37,7 @@ const Header = ({ siteTitle, homepage, konami }) => {
         <header>
             <div>
                 <h1 style={{ margin: '-0.2rem 0 0' }}>
-                    <AniLink fade to="/">
+                    <Link to="/">
                         <span style={{ display: konami ? 'block' : 'none' }}>Tom Février</span>
                         {
                             <svg style={{ display: konami ? 'none' : 'block' }} className={homepage ? styles.animated : styles.still} width="265" height="47" viewBox="0 0 265 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,15 +65,15 @@ const Header = ({ siteTitle, homepage, konami }) => {
                                 />
                             </svg>
                         }
-                    </AniLink>
+                    </Link>
                 </h1>
                 <nav className={showMobileMenu ? styles.active : ''}>
                     <ul className={konami ? styles.konami : ''}>
                         {site.siteMetadata.menuPaths.map(e => (
                             <li key={e.path}>
-                                <AniLink paintDrip color="rebeccapurple" to={e.path}>
+                                <Link to={e.path}>
                                     {e.name}
-                                </AniLink>
+                                </Link>
                             </li>
                         ))}
                     </ul>

@@ -1,7 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -30,11 +28,11 @@ const PublisherTemplate = ({ data }) => {
                 {data.strapiPublisher.projects.map(node => {
                     node.publisher = { name: data.strapiPublisher.name };
                     return (
-                        <AniLink key={node.id} paintDrip color="rebeccapurple" to={`/projet/${node.slug}`}>
+                        <Link key={node.id} to={`/projet/${node.slug}`}>
                             <li className={styles.item}>
                                 <ProjectPreview {...node} />
                             </li>
-                        </AniLink>
+                        </Link>
                     );
                 })}
             </ul>

@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import styles from './project-preview.module.css';
 
@@ -42,9 +42,9 @@ const ProjectPreview = node => {
     }
 
     return (
-        <AniLink paintDrip color="rebeccapurple" to={`/projet/${node.slug}`}>
+        <Link to={`/projet/${node.slug}`}>
             {card}
-        </AniLink>
+        </Link>
     );
 }
 

@@ -1,10 +1,9 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 import Img from 'gatsby-image';
 import ReactMarkdown from 'react-markdown';
 import ReactPlayer from 'react-player';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -34,9 +33,9 @@ const ProjectTemplate = ({ data }) => {
                 <p className={styles.subtitle}>
                     {data.strapiProject.category !== 'other' && <span className={styles.slug}>{categories[data.strapiProject.category]}</span>}
                     <span className={styles.publicationInfo}>
-                        <AniLink paintDrip color="rebeccapurple" to={`/media/${data.strapiProject.publisher.slug}`} className={styles.publisher}>
+                        <Link to={`/media/${data.strapiProject.publisher.slug}`} className={styles.publisher}>
                             <span>{data.strapiProject.publisher.name}</span>
-                        </AniLink>
+                        </Link>
                         {!data.strapiProject.publisher.name.startsWith('Projet ') && (
                             <span className={styles.date}>
                                 &nbsp;&mdash;&nbsp;Publié le&nbsp;

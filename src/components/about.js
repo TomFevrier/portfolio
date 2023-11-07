@@ -1,10 +1,8 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithubSquare, faSquareXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import { useStaticQuery } from 'gatsby';
 
@@ -55,20 +53,14 @@ const About = () => {
                         {data.allStrapiJob.edges
                             .filter(({ node }, index, self) => !node.company || index === self.findIndex(e => e.node.company && e.node.company.name === node.company.name))
                             .sort((a, b) => new Date(b.node.end) - new Date(a.node.end))
-                            .slice(1)
+                            .filter(({ node }) => !['Les Échos', 'Sciences Po'].includes(node.companyString || node.company.name))
                             .map(({ node }, index, array) => (
 	                            <span key={node.id}>
-	                                {index > 0 && (index < array.length - 1 ? ', ' : ' & ')}
-	                                {node.company ? (
-	                                    <AniLink paintDrip color="rebeccapurple" to={`/media/${node.company.slug}`}>
-	                                        {node.company.name}
-	                                    </AniLink>
-	                                ) : (
-	                                    node.companyString
-	                                )}
+	                                {index > 0 && ', '}
+	                                {node.company ? node.company.name : node.companyString}
 	                            </span>
 	                        ))}
-                        {'.'}
+                        {'...'}
                     </p>
                     <p>Cinéphile, sérievore, passionné de science-fiction et de nouvelles technologies.</p>
                 </div>

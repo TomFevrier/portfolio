@@ -48,11 +48,12 @@
 .social {
     display: flex;
     padding: 0;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    gap: 12px;
 }
 
 .social li {
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     color: var(--main-color);
 }
 

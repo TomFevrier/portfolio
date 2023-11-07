@@ -1,9 +1,7 @@
 import React from 'react';
-
 import ReactMarkdown from 'react-markdown';
-
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import ScrollAnimation from 'react-animate-on-scroll';
+import { Link } from 'gatsby';
 
 import 'animate.css/animate.min.css';
 import styles from './timeline.module.css';
@@ -44,9 +42,9 @@ const Timeline = ({ title, data }) => {
                                     {node.company ? (
                                         <h3>
                                             <span className={styles.entity}>
-                                                <AniLink paintDrip color="rebeccapurple" to={`/media/${node.company.slug}`}>
+                                                <Link to={`/media/${node.company.slug}`}>
                                                     {node.company.name}
-                                                </AniLink>
+                                                </Link>
                                             </span>
                                             , {node.location}
                                         </h3>

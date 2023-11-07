@@ -40,4 +40,7 @@ module.exports = {
         'gatsby-plugin-offline',
         'gatsby-plugin-transition-link',
     ],
+    flags: {
+        DEV_SSR: false,
+    }
 };
