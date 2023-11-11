@@ -31,6 +31,17 @@
     align-items: center;
 }
 
+.container hr {
+    border: none;
+    text-align: center;
+}
+
+.container hr::after {
+    content: "• • •";
+    text-align: center;
+    font-size: 1.1rem;
+}
+
 .picture {
     width: 240px;
     flex-shrink: 0;

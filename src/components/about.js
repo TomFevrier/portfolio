@@ -32,8 +32,8 @@ const About = () => {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                <div className={styles.text}>
-                    <p>{'Datajournaliste, développeur de nouveaux formats.'}</p>
+                <div>
+                    <p><b>Datajournaliste, développeur de nouveaux formats</b></p>
                     <p>
                         <a href="https://www.lesechos.fr/@tom-fevrier" target="_blank" rel="noopener noreferrer">
                             Journaliste visuel aux Échos
@@ -63,6 +63,39 @@ const About = () => {
                         {'...'}
                     </p>
                     <p>Cinéphile, sérievore, passionné de science-fiction et de nouvelles technologies.</p>
+                </div>
+                <hr />
+                <div style={{ fontStyle: 'italic' }}>
+                    <p><b>Datajournalist & Developer</b></p>
+                    <p>
+                        <a href="https://www.lesechos.fr/@tom-fevrier" target="_blank" rel="noopener noreferrer">
+                            Visual journalist at Les Échos
+                        </a>
+						, trained at{" "}
+                        <a href="https://www.sciencespo.fr/journalisme/" target="_blank" rel="noopener noreferrer">
+                            Sciences Po Journalism School
+                        </a>
+                        {" "}and{" "}
+                        <a href="https://www.42.fr/" target="_blank" rel="noopener noreferrer">
+                            42 Programming School
+                        </a>
+                        .
+                    </p>
+                    <p>
+                        Previously:{" "}
+                        {data.allStrapiJob.edges
+                            .filter(({ node }, index, self) => !node.company || index === self.findIndex(e => e.node.company && e.node.company.name === node.company.name))
+                            .sort((a, b) => new Date(b.node.end) - new Date(a.node.end))
+                            .filter(({ node }) => !['Les Échos', 'Sciences Po'].includes(node.companyString || node.company.name))
+                            .map(({ node }, index) => (
+	                            <span key={node.id}>
+	                                {index > 0 && ', '}
+	                                {node.company ? node.company.name : node.companyString}
+	                            </span>
+	                        ))}
+                        {'...'}
+                    </p>
+                    <p>Cinema, sci-fi and new technologies.</p>
                 </div>
                 <ul className={styles.social}>
                     <li>
