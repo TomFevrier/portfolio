@@ -21,11 +21,11 @@
   ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/ 
 
 [[redirects]]
- from = "/film-diary"
- to = "/film-diary/"
- status = 301
+  from = "/film-diary"
+  to = "https://tomfevrier-film-diary.netlify.app/"
+  status = 200
 
 [[redirects]]
- from = "/film-diary/*"
- to = "https://tomfevrier-film-diary.netlify.app/:splat"
- status = 200      # proxy: the URL stays tomfevrier.io/film-diary/…
+  from = "/film-diary/*"
+  to = "https://tomfevrier-film-diary.netlify.app/:splat"
+  status = 200      # proxy: the URL stays tomfevrier.io/film-diary/…
