@@ -29,3 +29,13 @@
   from = "/film-diary/*"
   to = "https://tomfevrier-film-diary.netlify.app/:splat"
   status = 200      # proxy: the URL stays tomfevrier.io/film-diary/…
+
+[[redirects]]
+  from = "/video-club"
+  to = "https://tomfevrier-video-club.netlify.app/"
+  status = 200
+
+[[redirects]]
+  from = "/video-club/*"
+  to = "https://tomfevrier-video-club.netlify.app/:splat"
+  status = 200      # proxy: the URL stays tomfevrier.io/video-club/…
